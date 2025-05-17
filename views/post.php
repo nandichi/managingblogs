@@ -57,8 +57,8 @@ require_once 'includes/functions.php';
             
             <!-- Post content -->
             <div class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
-                <div class="prose max-w-none">
-                    <?php echo nl2br(e($post['content'])); ?>
+                <div class="prose prose-lg max-w-none">
+                    <?php echo parseMarkdown($post['content']); ?>
                 </div>
             </div>
             

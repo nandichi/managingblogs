@@ -3,6 +3,11 @@
  * Algemene helper functies voor de toepassing
  */
 
+// Laad de Composer autoloader indien nog niet geladen
+if (!class_exists('\Parsedown')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+}
+
 /**
  * Toont een flash bericht uit de sessie
  */
@@ -69,6 +74,14 @@ function createExcerpt($text, $length = 150) {
  */
 function e($value) {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Parset Markdown tekst naar HTML
+ */
+function parseMarkdown($markdown) {
+    $parsedown = new \Parsedown();
+    return $parsedown->text($markdown);
 }
 
 /**

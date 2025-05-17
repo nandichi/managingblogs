@@ -48,6 +48,8 @@ switch ($currentPage) {
     <title><?php echo $pageTitle; ?></title>
     <!-- Tailwind CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind Typography Plugin via CDN -->
+    <link href="https://unpkg.com/@tailwindcss/typography@0.4.1/dist/typography.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <!-- Alpine.js via CDN -->
@@ -143,6 +145,112 @@ switch ($currentPage) {
         }
         .user-dropdown a:hover {
             background-color: var(--gray-light);
+        }
+        
+        /* Verbeterde Markdown Styling */
+        .prose {
+            max-width: 100%;
+            line-height: 1.7;
+        }
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            line-height: 1.3;
+        }
+        .prose h1 {
+            font-size: 2rem;
+        }
+        .prose h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        .prose h3 {
+            font-size: 1.25rem;
+        }
+        .prose p {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+        }
+        .prose a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(19, 43, 82, 0.3);
+            transition: border-color 0.2s ease;
+        }
+        .prose a:hover {
+            border-color: var(--primary);
+        }
+        .prose strong {
+            font-weight: 700;
+            color: var(--gray-dark);
+        }
+        .prose blockquote {
+            border-left: 4px solid var(--gold);
+            padding-left: 1rem;
+            font-style: italic;
+            color: #4b5563;
+            margin: 1.5rem 0;
+            background-color: rgba(224, 184, 61, 0.05);
+            padding: 1rem 1rem 1rem 2rem;
+            border-radius: 0.25rem;
+        }
+        .prose ul, .prose ol {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.5rem;
+        }
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .prose ul li {
+            list-style-type: disc;
+        }
+        .prose ol li {
+            list-style-type: decimal;
+        }
+        .prose code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: #f1f5f9;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+            color: #334155;
+        }
+        .prose pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        .prose pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: 0.875em;
+            line-height: 1.7;
+        }
+        .prose img {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .prose hr {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-color: #e5e7eb;
+        }
+        
+        /* Code editor styling */
+        .markdown-editor textarea {
+            font-family: "Courier New", Courier, monospace;
+            resize: vertical;
         }
     </style>
 </head>
