@@ -14,7 +14,7 @@ class Comment {
      */
     public function getCommentsByPostId($postId) {
         $stmt = $this->db->prepare("
-            SELECT c.*, u.username
+            SELECT c.*, u.username, u.email, u.profile_image
             FROM comments c
             JOIN users u ON c.user_id = u.id
             WHERE c.post_id = :post_id
@@ -30,7 +30,7 @@ class Comment {
      */
     public function getCommentById($id) {
         $stmt = $this->db->prepare("
-            SELECT c.*, u.username
+            SELECT c.*, u.username, u.email, u.profile_image
             FROM comments c
             JOIN users u ON c.user_id = u.id
             WHERE c.id = :id

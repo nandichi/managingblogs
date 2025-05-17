@@ -141,6 +141,24 @@ function getThumbnailUrl($featuredImage) {
 }
 
 /**
+ * Genereert een URL voor een profielfoto, of een standaard afbeelding als de profielfoto niet bestaat
+ */
+function getProfileImageUrl($profileImage, $email = null) {
+    if ($profileImage && file_exists($profileImage)) {
+        // Voeg caching-busting parameter toe
+        return $profileImage . '?v=' . time();
+    }
+    
+    // Gebruik Gravatar als alternatief wanneer beschikbaar
+    if ($email) {
+        return getGravatarUrl($email);
+    }
+    
+    // Fallback naar een standaard avatar
+    return 'public/images/avatars/default.jpg';
+}
+
+/**
  * Reageert met een 404 fout
  */
 function show404() {

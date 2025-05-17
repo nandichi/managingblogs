@@ -88,6 +88,7 @@ class AuthController {
         // Verwijder gebruikersgegevens uit de sessie
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
+        unset($_SESSION['email']);
         unset($_SESSION['is_admin']);
         
         // Vernietig de sessie
@@ -104,6 +105,7 @@ class AuthController {
     private function setLoggedInUser($user) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
+        $_SESSION['email'] = $user['email'];
         $_SESSION['is_admin'] = $user['is_admin'] ?? 0;
     }
     

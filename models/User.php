@@ -13,7 +13,7 @@ class User {
      * Haalt een gebruiker op basis van ID
      */
     public function getUserById($id) {
-        $stmt = $this->db->prepare("SELECT id, username, email, is_admin, created_at FROM users WHERE id = :id");
+        $stmt = $this->db->prepare("SELECT id, username, email, profile_image, is_admin, created_at FROM users WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -79,7 +79,7 @@ class User {
      * Updatet een gebruikersprofiel
      */
     public function updateUser($id, $data) {
-        $allowed = ['username', 'email'];
+        $allowed = ['username', 'email', 'profile_image'];
         $fields = [];
         $values = ['id' => $id];
         

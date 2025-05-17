@@ -40,7 +40,7 @@ require_once 'includes/functions.php';
                     <?php endif; ?>
                 </div>
                 <div class="flex items-center text-gray-600">
-                    <img src="<?php echo getGravatarUrl($post['author_email'] ?? ''); ?>" alt="<?php echo e($post['author_name']); ?>" class="w-10 h-10 rounded-full mr-3">
+                    <img src="<?php echo getProfileImageUrl($post['author_profile_image'], $post['author_email']); ?>" alt="<?php echo e($post['author_name']); ?>" class="w-10 h-10 rounded-full mr-3 object-cover">
                     <div>
                         <span class="font-medium"><?php echo e($post['author_name']); ?></span>
                         <span class="text-gray-500 text-sm block">Auteur</span>
@@ -98,7 +98,7 @@ require_once 'includes/functions.php';
                         <?php foreach ($comments as $comment): ?>
                             <div class="border-b border-gray-200 pb-6 last:border-0 last:pb-0">
                                 <div class="flex items-start mb-2">
-                                    <img src="<?php echo getGravatarUrl($comment['email'] ?? ''); ?>" alt="<?php echo e($comment['username']); ?>" class="w-10 h-10 rounded-full mr-3">
+                                    <img src="<?php echo getProfileImageUrl($comment['profile_image'], $comment['email']); ?>" alt="<?php echo e($comment['username']); ?>" class="w-10 h-10 rounded-full mr-3 object-cover">
                                     <div>
                                         <div class="flex items-center">
                                             <span class="font-medium"><?php echo e($comment['username']); ?></span>

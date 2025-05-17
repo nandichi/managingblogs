@@ -17,7 +17,7 @@ class Post {
         $offset = ($page - 1) * $perPage;
         
         $stmt = $this->db->prepare("
-            SELECT p.*, u.username as author_name, c.name as category_name
+            SELECT p.*, u.username as author_name, u.email as author_email, u.profile_image as author_profile_image, c.name as category_name
             FROM posts p
             JOIN users u ON p.author_id = u.id
             JOIN categories c ON p.category_id = c.id
@@ -45,7 +45,7 @@ class Post {
      */
     public function getPostById($id) {
         $stmt = $this->db->prepare("
-            SELECT p.*, u.username as author_name, c.name as category_name
+            SELECT p.*, u.username as author_name, u.email as author_email, u.profile_image as author_profile_image, c.name as category_name
             FROM posts p
             JOIN users u ON p.author_id = u.id
             JOIN categories c ON p.category_id = c.id
@@ -63,7 +63,7 @@ class Post {
         $offset = ($page - 1) * $perPage;
         
         $stmt = $this->db->prepare("
-            SELECT p.*, u.username as author_name, c.name as category_name
+            SELECT p.*, u.username as author_name, u.email as author_email, u.profile_image as author_profile_image, c.name as category_name
             FROM posts p
             JOIN users u ON p.author_id = u.id
             JOIN categories c ON p.category_id = c.id
@@ -85,7 +85,7 @@ class Post {
      */
     public function getRecentPosts($limit = 5) {
         $stmt = $this->db->prepare("
-            SELECT p.*, u.username as author_name, c.name as category_name
+            SELECT p.*, u.username as author_name, u.email as author_email, u.profile_image as author_profile_image, c.name as category_name
             FROM posts p
             JOIN users u ON p.author_id = u.id
             JOIN categories c ON p.category_id = c.id
@@ -155,7 +155,7 @@ class Post {
         $searchParam = "%{$searchTerm}%";
         
         $stmt = $this->db->prepare("
-            SELECT p.*, u.username as author_name, c.name as category_name
+            SELECT p.*, u.username as author_name, u.email as author_email, u.profile_image as author_profile_image, c.name as category_name
             FROM posts p
             JOIN users u ON p.author_id = u.id
             JOIN categories c ON p.category_id = c.id

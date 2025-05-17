@@ -4,6 +4,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Controleer of we het User model moeten laden voor profielfoto's
+if (isset($_SESSION['user_id']) && file_exists('models/User.php') && !class_exists('User')) {
+    require_once 'models/User.php';
+}
+
 // Bepaal de huidige pagina
 $currentPage = basename($_SERVER['PHP_SELF']);
 
@@ -205,7 +210,27 @@ switch ($currentPage) {
                             <button @click="userMenuOpen = !userMenuOpen" class="flex items-center focus:outline-none group">
                                 <span class="mr-2 text-gray-700 group-hover:text-primary transition"><?php echo $_SESSION['username']; ?></span>
                                 <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition">
-                                    <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php 
+                                    // Check voor profielfoto in sessie eerst (directe update)
+                                    if(isset($_SESSION['profile_image']) && file_exists($_SESSION['profile_image'])): 
+                                    ?>
+                                        <img src="<?php echo $_SESSION['profile_image']; ?>?v=<?php echo time(); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php 
+                                    // Als niet in sessie, haal op uit database
+                                    elseif(isset($db)):
+                                        $currentUserId = $_SESSION['user_id'];
+                                        $userModel = new User($db);
+                                        $currentUserDetails = $userModel->getUserById($currentUserId);
+                                        if(!empty($currentUserDetails['profile_image']) && file_exists($currentUserDetails['profile_image'])): 
+                                            // Sla ook op in sessie voor toekomstig gebruik
+                                            $_SESSION['profile_image'] = $currentUserDetails['profile_image'];
+                                    ?>
+                                        <img src="<?php echo $currentUserDetails['profile_image']; ?>?v=<?php echo time(); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php else: ?>
+                                        <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php endif; else: ?>
+                                        <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php endif; ?>
                                 </div>
                             </button>
                             <div x-show="userMenuOpen" @click.away="userMenuOpen = false" class="absolute right-0 z-10 mt-2 user-dropdown w-48">
@@ -306,7 +331,30 @@ switch ($currentPage) {
                         <?php if (isset($_SESSION['user_id'])): ?>
                             <div class="flex items-center py-2">
                                 <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 mr-3">
-                                    <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php 
+                                    // Check voor profielfoto in sessie eerst (mobiele versie)
+                                    if(isset($_SESSION['profile_image']) && file_exists($_SESSION['profile_image'])): 
+                                    ?>
+                                        <img src="<?php echo $_SESSION['profile_image']; ?>?v=<?php echo time(); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php 
+                                    // Als niet in sessie, haal op uit database
+                                    elseif(isset($db)):
+                                        $currentUserId = $_SESSION['user_id'];
+                                        if(!isset($currentUserDetails)):
+                                            $userModel = new User($db);
+                                            $currentUserDetails = $userModel->getUserById($currentUserId);
+                                        endif;
+                                        
+                                        if(isset($currentUserDetails) && !empty($currentUserDetails['profile_image']) && file_exists($currentUserDetails['profile_image'])): 
+                                            // Sla ook op in sessie voor toekomstig gebruik
+                                            $_SESSION['profile_image'] = $currentUserDetails['profile_image'];
+                                    ?>
+                                        <img src="<?php echo $currentUserDetails['profile_image']; ?>?v=<?php echo time(); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php else: ?>
+                                        <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php endif; else: ?>
+                                        <img src="<?php echo getGravatarUrl($_SESSION['email'] ?? 'default@example.com'); ?>" alt="Profile" class="w-full h-full object-cover">
+                                    <?php endif; ?>
                                 </div>
                                 <div>
                                     <p class="font-medium text-gray-800"><?php echo $_SESSION['username']; ?></p>

@@ -47,7 +47,10 @@ require_once 'includes/functions.php';
                             </h3>
                             <p class="text-gray-600 mb-4"><?php echo createExcerpt($post['content'], 200); ?></p>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-500">Door <?php echo e($post['author_name']); ?></span>
+                                <div class="flex items-center">
+                                    <img src="<?php echo getProfileImageUrl($post['author_profile_image'], $post['author_email']); ?>" alt="<?php echo e($post['author_name']); ?>" class="w-6 h-6 rounded-full mr-2 object-cover">
+                                    <span class="text-sm text-gray-500">Door <?php echo e($post['author_name']); ?></span>
+                                </div>
                                 <a href="post.php?id=<?php echo $post['id']; ?>" class="text-primary hover:text-opacity-80 font-medium flex items-center">
                                     Lees meer
                                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
