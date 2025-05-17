@@ -5,71 +5,110 @@ require_once 'includes/header.php';
 require_once 'includes/functions.php';
 ?>
 
-<!-- Hero sectie met eenvoudigere styling, meer gelijkend op de screenshots -->
-<div class="relative bg-gradient-to-r from-gray-900 to-primary py-16 mb-12 rounded-xl overflow-hidden shadow-lg">
+<!-- Hero sectie met professionele styling en verbeterd ontwerp -->
+<div class="relative bg-gradient-to-r from-gray-900 to-primary py-20 mb-12 rounded-xl overflow-hidden shadow-2xl">
+    <!-- Decoratieve elementen -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+        <div class="absolute left-0 top-0 w-full h-full bg-repeat opacity-10" style="background-image: url('assets/images/pattern.png');"></div>
+        <div class="absolute -right-24 -top-24 w-96 h-96 bg-gold rounded-full mix-blend-overlay blur-3xl opacity-20"></div>
+        <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-primary rounded-full mix-blend-overlay blur-3xl opacity-30"></div>
+    </div>
+    
     <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-                Welkom bij Voetbal<span class="text-gold">Visie</span>
+            <span class="inline-block text-gold text-sm md:text-base font-semibold mb-3 bg-gray-900 bg-opacity-50 py-1 px-3 rounded-full backdrop-blur-sm">Het beste voetbalplatform van Nederland</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                Welkom bij Voetbal<span class="text-gold relative">Visie
+                    <span class="absolute -bottom-1.5 left-0 h-1 bg-gold w-full rounded-full opacity-70"></span>
+                </span>
             </h1>
-            <p class="text-xl text-gray-200 mb-8">
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
                 Het ultieme platform voor het laatste nieuws, diepgaande analyses en exclusieve verhalen uit de voetbalwereld.
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="blog.php" class="bg-primary text-white py-2 px-6 rounded-lg border border-white hover:bg-opacity-90 transition flex items-center">
+                <a href="blog.php" class="group bg-gold text-gray-900 py-3 px-8 rounded-lg hover:bg-yellow-500 hover:scale-105 shadow-lg transition-all duration-300 flex items-center font-semibold">
                     Ontdek onze artikelen
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                 </a>
-                <a href="register.php" class="bg-transparent text-white py-2 px-6 rounded-lg border border-white hover:bg-white hover:bg-opacity-10 transition flex items-center">
+                <a href="register.php" class="bg-transparent text-white py-3 px-8 rounded-lg border border-white hover:bg-white hover:bg-opacity-10 hover:scale-105 shadow-lg transition-all duration-300 flex items-center font-semibold backdrop-blur-sm">
                     Word lid
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                 </a>
             </div>
         </div>
     </div>
+    
+    <!-- Decoratieve golven onderaan -->
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" fill="none" preserveAspectRatio="none" class="w-full h-10 text-white/10">
+            <path fill="currentColor" d="M0,224L80,213.3C160,203,320,181,480,181.3C640,181,800,203,960,197.3C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        </svg>
+    </div>
 </div>
 
 <!-- Uitgelicht artikel sectie -->
 <?php if (isset($featuredPost) && $featuredPost): ?>
-<div class="mb-12">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-gold pb-2 inline-block">
-        Uitgelicht artikel
-    </h2>
+<div class="mb-16">
+    <div class="flex items-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 border-b-2 border-gold pb-2">
+            Uitgelicht artikel
+        </h2>
+        <div class="ml-4 w-2 h-2 rounded-full bg-gold"></div>
+        <div class="h-px flex-grow bg-gradient-to-r from-gold to-transparent ml-2"></div>
+    </div>
     
-    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+    <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
         <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-2/3 relative">
+            <div class="lg:w-2/3 relative group overflow-hidden">
                 <img src="<?php echo getThumbnailUrl($featuredPost['featured_image']); ?>" alt="<?php echo e($featuredPost['title']); ?>" 
-                     class="w-full h-auto object-cover">
-                <div class="absolute top-0 left-0 bg-primary text-white py-1 px-3 m-4 text-sm">
-                    <?php echo e($featuredPost['category_name']); ?>
+                     class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" style="min-height: 350px;">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+                <div class="absolute top-0 left-0 m-6">
+                    <span class="bg-gold text-gray-900 py-1.5 px-4 rounded-full text-sm font-semibold shadow-md">
+                        <?php echo e($featuredPost['category_name']); ?>
+                    </span>
+                </div>
+                <div class="absolute bottom-0 left-0 p-6 lg:hidden">
+                    <h3 class="text-2xl font-bold text-white mb-2">
+                        <?php echo e($featuredPost['title']); ?>
+                    </h3>
+                    <div class="flex items-center text-gray-200 mb-2">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full mr-2 overflow-hidden border-2 border-white">
+                            <img src="<?php echo getProfileImageUrl($featuredPost['author_profile_image'], $featuredPost['author_email']); ?>" alt="<?php echo e($featuredPost['author_name']); ?>" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-sm mr-2"><?php echo e($featuredPost['author_name']); ?></span>
+                        <span class="mx-2 text-gray-400">•</span>
+                        <span class="text-sm"><?php echo formatDate($featuredPost['created_at']); ?></span>
+                    </div>
                 </div>
             </div>
-            <div class="lg:w-1/3 p-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">
-                    <a href="post.php?id=<?php echo $featuredPost['id']; ?>" class="hover:text-primary transition-colors">
-                        <?php echo e($featuredPost['title']); ?>
-                    </a>
-                </h3>
-                <p class="text-gray-600 mb-4"><?php echo createExcerpt($featuredPost['content'], 100); ?></p>
-                
-                <div class="flex items-center mb-4">
-                    <div class="w-8 h-8 bg-gray-200 rounded-full mr-2 overflow-hidden">
-                        <img src="<?php echo getProfileImageUrl($featuredPost['author_profile_image'], $featuredPost['author_email']); ?>" alt="<?php echo e($featuredPost['author_name']); ?>" class="w-full h-full object-cover">
+            <div class="lg:w-1/3 p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-tight hidden lg:block">
+                        <a href="post.php?id=<?php echo $featuredPost['id']; ?>" class="hover:text-primary transition-colors">
+                            <?php echo e($featuredPost['title']); ?>
+                        </a>
+                    </h3>
+                    <div class="flex items-center mb-4 hidden lg:flex">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full mr-3 overflow-hidden border-2 border-white shadow-sm">
+                            <img src="<?php echo getProfileImageUrl($featuredPost['author_profile_image'], $featuredPost['author_email']); ?>" alt="<?php echo e($featuredPost['author_name']); ?>" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="block text-gray-700 font-medium"><?php echo e($featuredPost['author_name']); ?></span>
+                            <span class="block text-gray-500 text-sm"><?php echo formatDate($featuredPost['created_at']); ?></span>
+                        </div>
                     </div>
-                    <span class="text-gray-600 text-sm"><?php echo e($featuredPost['author_name']); ?></span>
-                    <span class="mx-2 text-gray-400">•</span>
-                    <span class="text-gray-500 text-sm"><?php echo formatDate($featuredPost['created_at']); ?></span>
+                    <p class="text-gray-600 leading-relaxed mb-6"><?php echo createExcerpt($featuredPost['content'], 150); ?></p>
                 </div>
                 
-                <a href="post.php?id=<?php echo $featuredPost['id']; ?>" class="text-primary hover:underline flex items-center text-sm font-medium">
-                    Lees verder
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                <a href="post.php?id=<?php echo $featuredPost['id']; ?>" class="group inline-flex items-center gap-2 text-gold font-semibold hover:text-primary transition-colors">
+                    <span>Lees verder</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                 </a>
             </div>
@@ -136,32 +175,53 @@ require_once 'includes/functions.php';
         </div>
         
         <!-- Voetbal Nieuws en Updates sectie -->
-        <div class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-gold pb-2 inline-block">
-                Voetbal nieuws en updates
-            </h2>
+        <div class="mb-16">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 border-b-2 border-gold pb-2">
+                    Voetbal nieuws en updates
+                </h2>
+                <div class="ml-4 w-2 h-2 rounded-full bg-gold"></div>
+                <div class="h-px flex-grow bg-gradient-to-r from-gold to-transparent ml-2"></div>
+            </div>
             
-            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-2/3 mb-6 md:mb-0 md:pr-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Blijf op de hoogte van al het voetbalnieuws</h3>
-                        <p class="text-gray-600 mb-6">
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl overflow-hidden shadow-xl border border-gray-100 relative">
+                <!-- Decoratieve elementen -->
+                <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-primary rounded-full mix-blend-multiply opacity-5"></div>
+                <div class="absolute -left-16 -top-16 w-64 h-64 bg-gold rounded-full mix-blend-multiply opacity-5"></div>
+                
+                <div class="flex flex-col md:flex-row relative z-10 p-8">
+                    <div class="md:w-2/3 mb-8 md:mb-0 md:pr-10">
+                        <span class="inline-block bg-gold bg-opacity-10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Blijf op de hoogte</span>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-tight">Volg het laatste voetbalnieuws</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
                             VoetbalVisie is dé plek voor voetbalfans om up-to-date te blijven met het laatste nieuws, 
                             diepgaande analyses, exclusieve interviews en wedstrijdverslagen uit binnen- en buitenland. 
                             Word lid van onze community om deel te nemen aan discussies, je mening te delen en geen enkel 
                             verhaal te missen over jouw favoriete clubs, spelers en competities!
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="register.php" class="bg-primary text-white py-2 px-6 rounded-lg hover:bg-opacity-90 transition">
-                                Registreer nu
+                            <a href="register.php" class="group bg-primary text-white py-3 px-8 rounded-lg hover:bg-opacity-90 hover:scale-105 shadow-lg transition-all duration-300 flex items-center font-semibold">
+                                <span>Registreer nu</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
                             </a>
-                            <a href="blog.php" class="border border-primary text-primary py-2 px-6 rounded-lg hover:bg-primary hover:text-white transition">
-                                Bekijk alle artikelen
+                            <a href="blog.php" class="group bg-transparent border-2 border-primary text-primary py-3 px-8 rounded-lg hover:bg-primary hover:text-white hover:scale-105 shadow-lg transition-all duration-300 flex items-center font-semibold">
+                                <span>Bekijk alle artikelen</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-1/3 flex justify-center">
-                        <img src="assets/images/soccer-ball.png" alt="Voetbal" class="h-32 object-contain">
+                    <div class="md:w-1/3 flex items-center justify-center relative">
+                        <div class="w-full h-full max-w-xs relative">
+                            <div class="absolute inset-0 bg-gold rounded-full opacity-10 transform -translate-x-4 translate-y-4"></div>
+                            <div class="absolute inset-0 bg-primary rounded-full opacity-10 transform translate-x-4 -translate-y-4"></div>
+                            <div class="relative z-10 flex items-center justify-center">
+                                <img src="assets/images/soccer-ball.png" alt="Voetbal" class="h-48 w-48 object-contain transform transition-transform hover:rotate-12 hover:scale-110 duration-500">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
