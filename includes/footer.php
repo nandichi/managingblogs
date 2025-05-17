@@ -6,7 +6,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Logo en korte info -->
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">Managing<span class="gold-accent">Blogs</span></h2>
+                    <h2 class="text-2xl font-bold mb-4">Voetbal<span class="gold-accent">Visie</span></h2>
                     <p class="text-gray-300 mb-4">
                         Het laatste nieuws, analyses en verhalen over Real Madrid. 
                         Een gemeenschap voor voetbalfans.
@@ -62,7 +62,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; <?php echo date('Y'); ?> ManagingBlogs. Alle rechten voorbehouden.</p>
+                <p>&copy; <?php echo date('Y'); ?> VoetbalVisie. Alle rechten voorbehouden.</p>
                 <p class="mt-2">
                     <a href="privacy.php" class="hover:text-white">Privacybeleid</a> | 
                     <a href="terms.php" class="hover:text-white">Gebruiksvoorwaarden</a>

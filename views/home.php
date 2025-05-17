@@ -6,7 +6,7 @@ require_once 'includes/functions.php';
 ?>
 
 <div class="mb-8">
-    <h1 class="text-3xl font-bold text-primary mb-2">Welkom bij Managing<span class="gold-accent">Blogs</span></h1>
+    <h1 class="text-3xl font-bold text-primary mb-2">Welkom bij Voetbal<span class="gold-accent">Visie</span></h1>
     <p class="text-gray-600">Het laatste nieuws, analyses en verhalen over Real Madrid.</p>
 </div>
 
@@ -82,7 +82,7 @@ require_once 'includes/functions.php';
             <h2 class="text-2xl font-bold text-primary mb-6">Real Madrid nieuws en updates</h2>
             <div class="bg-white rounded-lg shadow-md p-6">
                 <p class="text-gray-700 mb-4">
-                    Managing<span class="gold-accent">Blogs</span> is de beste plek voor Real Madrid fans om op de hoogte te blijven van het laatste nieuws, wedstrijdverslagen, analyses en meer. Registreer nu om deel te nemen aan discussies, je mening te delen en geen enkel verhaal te missen!
+                    Voetbal<span class="gold-accent">Visie</span> is de beste plek voor Real Madrid fans om op de hoogte te blijven van het laatste nieuws, wedstrijdverslagen, analyses en meer. Registreer nu om deel te nemen aan discussies, je mening te delen en geen enkel verhaal te missen!
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="register.php" class="bg-primary text-white py-2 px-6 rounded-md text-center hover:bg-opacity-90 transition">

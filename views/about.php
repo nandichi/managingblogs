@@ -7,19 +7,19 @@ require_once 'includes/functions.php';
 
 <div class="mb-8">
     <h1 class="text-3xl font-bold text-primary mb-2">Over Ons</h1>
-    <p class="text-gray-600">Leer meer over Managing<span class="gold-accent">Blogs</span> en ons team.</p>
+    <p class="text-gray-600">Leer meer over Voetbal<span class="gold-accent">Visie</span> en ons team.</p>
 </div>
 
 <div class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
     <div class="prose max-w-none">
         <h2>Onze Missie</h2>
         <p>
-            Managing<span class="gold-accent">Blogs</span> is opgericht met één doel: de meest betrouwbare en uitgebreide bron van nieuws, analyses en verhalen over Real Madrid te bieden. Als fans van de club, begrijpen we de passie en toewijding die andere supporters hebben, en we streven ernaar om die passie te kanaliseren in hoogwaardige content die zowel informatief als onderhoudend is.
+            Voetbal<span class="gold-accent">Visie</span> is opgericht met één doel: de meest betrouwbare en uitgebreide bron van nieuws, analyses en verhalen over Real Madrid te bieden. Als fans van de club, begrijpen we de passie en toewijding die andere supporters hebben, en we streven ernaar om die passie te kanaliseren in hoogwaardige content die zowel informatief als onderhoudend is.
         </p>
         
         <h2 class="mt-8">Wat We Doen</h2>
         <p>
-            Bij Managing<span class="gold-accent">Blogs</span> publiceren we dagelijks artikelen over alles wat met Real Madrid te maken heeft, waaronder:
+            Bij Voetbal<span class="gold-accent">Visie</span> publiceren we dagelijks artikelen over alles wat met Real Madrid te maken heeft, waaronder:
         </p>
         <ul class="list-disc pl-6 mt-2">
             <li>Uitgebreide wedstrijdverslagen en analyses</li>
@@ -56,7 +56,7 @@ require_once 'includes/functions.php';
             We horen graag van onze lezers! Of je nu een suggestie hebt, feedback wilt geven, of gewoon in contact wilt komen, je kunt ons bereiken via:
         </p>
         <ul class="list-disc pl-6 mt-2">
-            <li>Email: <a href="mailto:info@managingblogs.nl" class="text-primary">info@managingblogs.nl</a></li>
+            <li>Email: <a href="mailto:info@voetbalvisie.nl" class="text-primary">info@voetbalvisie.nl</a></li>
             <li>Sociale media: Volg ons op Twitter, Facebook en Instagram</li>
             <li>Commentaarsecties: We lezen en reageren regelmatig op opmerkingen op onze artikelen</li>
         </ul>
