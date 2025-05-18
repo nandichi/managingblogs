@@ -63,8 +63,22 @@ function createExcerpt($text, $length = 150) {
     // Knip de tekst af op de juiste lengte
     $excerpt = substr($text, 0, $length);
     
-    // Zorg ervoor dat we geen woord halverwege afbreken
-    $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+    // Zoek het laatste volledige woord en de laatste zin
+    $lastSpace = strrpos($excerpt, ' ');
+    $lastPeriod = strrpos($excerpt, '.');
+    $lastQuestion = strrpos($excerpt, '?');
+    $lastExclamation = strrpos($excerpt, '!');
+    
+    // Als er een zin eindigt niet te ver voor het einde, kap daar af
+    $sentenceEnd = max($lastPeriod, $lastQuestion, $lastExclamation);
+    if ($sentenceEnd !== false && $sentenceEnd > $length * 0.7) {
+        return substr($excerpt, 0, $sentenceEnd + 1);
+    }
+    
+    // Anders kap af bij het laatste volledige woord
+    if ($lastSpace !== false) {
+        $excerpt = substr($excerpt, 0, $lastSpace);
+    }
     
     return $excerpt . '...';
 }
@@ -238,4 +252,29 @@ function formatReadingTime($content, $wordsPerMinute = 200) {
     
     // Minimaal 1 minuut
     return max(1, $minutes);
+}
+
+/**
+ * Filtert markdown-tekens uit de content
+ * 
+ * @param string $content De content met mogelijk markdown-tekens
+ * @return string De gefilterde content zonder markdown-tekens
+ */
+function filterMarkdown($content) {
+    // Verwijder heading markdown (# ## ### etc.)
+    $content = preg_replace('/^#+\s+/m', '', $content);
+    
+    // Verwijder bold/italic markdown
+    $content = preg_replace('/(\*\*|\*|__|_)(.*?)(\*\*|\*|__|_)/', '$2', $content);
+    
+    // Verwijder link markdown
+    $content = preg_replace('/\[(.*?)\]\((.*?)\)/', '$1', $content);
+    
+    // Verwijder code blocks
+    $content = preg_replace('/```(.*?)```/s', '$1', $content);
+    
+    // Verwijder inline code
+    $content = preg_replace('/`(.*?)`/', '$1', $content);
+    
+    return $content;
 } 
