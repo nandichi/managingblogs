@@ -3,6 +3,16 @@
 require_once 'includes/header.php';
 // Inclusief helper functies als die nog niet zijn geladen
 require_once 'includes/functions.php';
+// Inclusief clubs bestand voor handmatige standen
+require_once 'data/clubs.php';
+
+// Haal de geselecteerde competitie op uit GET of standaardwaarde
+$selectedLeague = isset($_GET['league']) ? $_GET['league'] : 'premier-league';
+
+// Controleer of de geselecteerde competitie geldig is
+if (!isset($availableLeagues[$selectedLeague])) {
+    $selectedLeague = 'premier-league'; // Standaard als de competitie niet bestaat
+}
 ?>
 
 <div class="mb-8">
@@ -196,11 +206,80 @@ require_once 'includes/functions.php';
                     
                 } catch (backupError) {
                     console.error('Error fetching standings from backup source:', backupError);
-                    loadingElement.classList.add('hidden');
-                    errorMessage.classList.remove('hidden');
                     
-                    // Toon fallback data als beide API's falen
-                    showFallbackData();
+                    // Probeer handmatige standen te laden als beide API's falen
+                    try {
+                        // Gebruik het relatieve pad binnen de website
+                        const manualStandingsUrl = 'data/manual_standings_' + selectedLeague + '.json';
+                        console.log('Attempting to load manual standings from:', manualStandingsUrl);
+                        
+                        const manualResponse = await fetch(manualStandingsUrl);
+                        
+                        if (!manualResponse.ok) {
+                            throw new Error('Kon de handmatige standen niet ophalen');
+                        }
+                        
+                        const manualData = await manualResponse.json();
+                        const now = new Date();
+                        lastUpdatedElement.textContent = `Laatst bijgewerkt: ${formatDate(now)} (handmatige data)`;
+                        
+                        // Converteer handmatige data naar het juiste formaat
+                        const formattedData = {
+                            standings: []
+                        };
+                        
+                        // Converteer object naar array en sorteer op rank
+                        const teamsArray = Object.values(manualData);
+                        teamsArray.sort((a, b) => a.rank - b.rank);
+                        
+                        formattedData.standings = teamsArray.map(team => ({
+                            rank: team.rank,
+                            team: { name: team.team },
+                            matches_played: team.matches_played,
+                            wins: team.wins,
+                            draws: team.draws,
+                            losses: team.losses,
+                            goals_for: team.goals_for,
+                            goals_against: team.goals_against,
+                            goal_difference: team.goal_difference,
+                            points: team.points
+                        }));
+                        
+                        // Render handmatige standen
+                        renderStandings(formattedData);
+                        
+                        // Toon de resultaten, verberg de loading
+                        loadingElement.classList.add('hidden');
+                        standingsContainer.classList.remove('hidden');
+                        
+                        // Toon een waarschuwing dat dit handmatige data is
+                        const warningElement = document.createElement('div');
+                        warningElement.className = 'bg-yellow-50 border-l-4 border-yellow-400 p-4 my-4';
+                        warningElement.innerHTML = `
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        Opmerking: We tonen momenteel handmatig ingevoerde data omdat we geen verbinding konden maken met de externe API's.
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        standingsContainer.parentNode.insertBefore(warningElement, standingsContainer);
+                        
+                    } catch (manualError) {
+                        console.error('Error fetching manual standings:', manualError);
+                        loadingElement.classList.add('hidden');
+                        errorMessage.classList.remove('hidden');
+                        
+                        // Toon fallback data als alle bronnen falen
+                        showFallbackData();
+                    }
                 }
             }
         }
@@ -380,7 +459,10 @@ require_once 'includes/functions.php';
                     </div>
                     <div class="ml-3">
                         <p class="text-sm text-yellow-700">
-                            Opmerking: We tonen momenteel demodata omdat we geen verbinding konden maken met de externe API's.
+                            Opmerking: We tonen momenteel demodata omdat we geen verbinding konden maken met de externe API's of handmatige data.
+                        </p>
+                        <p class="text-sm text-yellow-700 mt-1">
+                            <a href="admin/edit_standings.php?league=<?php echo $selectedLeague; ?>" class="underline font-medium">Klik hier</a> om handmatig standen in te voeren.
                         </p>
                     </div>
                 </div>
