@@ -281,6 +281,7 @@ switch ($currentPage) {
                 <nav class="hidden md:flex space-x-6 items-center">
                     <a href="index.php" class="nav-link py-2 text-gray-700 hover:text-primary <?php echo $currentPage == 'index.php' ? 'active' : ''; ?>">Home</a>
                     <a href="blog.php" class="nav-link py-2 text-gray-700 hover:text-primary <?php echo $currentPage == 'blog.php' ? 'active' : ''; ?>">Blog</a>
+                    <a href="standings.php" class="nav-link py-2 text-gray-700 hover:text-primary <?php echo $currentPage == 'standings.php' ? 'active' : ''; ?>">Competitie Standen</a>
                     <div class="relative" x-data="{ categoriesOpen: false }">
                         <button @click="categoriesOpen = !categoriesOpen" class="nav-link py-2 text-gray-700 hover:text-primary flex items-center">
                             Categorieën
@@ -394,6 +395,7 @@ switch ($currentPage) {
                 <nav class="border-t border-gray-100 pt-4">
                     <a href="index.php" class="block py-2.5 px-1 <?php echo $currentPage == 'index.php' ? 'font-semibold text-primary' : 'text-gray-600 hover:text-primary'; ?>">Home</a>
                     <a href="blog.php" class="block py-2.5 px-1 <?php echo $currentPage == 'blog.php' ? 'font-semibold text-primary' : 'text-gray-600 hover:text-primary'; ?>">Blog</a>
+                    <a href="standings.php" class="block py-2.5 px-1 <?php echo $currentPage == 'standings.php' ? 'font-semibold text-primary' : 'text-gray-600 hover:text-primary'; ?>">Competitie Standen</a>
                     <div x-data="{ mobileCategoriesOpen: false }">
                         <button @click="mobileCategoriesOpen = !mobileCategoriesOpen" class="w-full flex justify-between items-center py-2.5 px-1 text-left text-gray-600 hover:text-primary">
                             <span>Categorieën</span>
