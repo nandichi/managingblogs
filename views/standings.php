@@ -33,7 +33,7 @@ if (!isset($availableLeagues[$selectedLeague])) {
 <!-- Huidige competitie titel -->
 <div class="flex items-center mb-6">
     <h2 class="text-2xl font-bold"><?php echo $availableLeagues[$selectedLeague]; ?></h2>
-    <div class="ml-3 px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">Seizoen 2023/2024</div>
+    <div class="ml-3 px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">Seizoen 2024/2025</div>
     <div id="last-updated" class="ml-auto text-sm text-gray-500"></div>
 </div>
 
