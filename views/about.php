@@ -7,32 +7,32 @@ require_once 'includes/functions.php';
 
 <div class="mb-8">
     <h1 class="text-3xl font-bold text-primary mb-2">Over Ons</h1>
-    <p class="text-gray-600">Leer meer over Voetbal<span class="gold-accent">Visie</span> en ons team.</p>
+    <p class="text-gray-600">Leer meer over Vlag<span class="gold-accent">lijn</span> en ons team.</p>
 </div>
 
 <div class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
     <div class="prose max-w-none">
         <h2>Onze Missie</h2>
         <p>
-            Voetbal<span class="gold-accent">Visie</span> is opgericht met één doel: de meest betrouwbare en uitgebreide bron van nieuws, analyses en verhalen over Real Madrid te bieden. Als fans van de club, begrijpen we de passie en toewijding die andere supporters hebben, en we streven ernaar om die passie te kanaliseren in hoogwaardige content die zowel informatief als onderhoudend is.
+            Vlag<span class="gold-accent">lijn</span> is opgericht met één doel: de meest betrouwbare en uitgebreide bron van nieuws, analyses en verhalen over vlaggen te bieden. Als liefhebbers van vlaggen, begrijpen we de passie en toewijding die andere vlaggenthousiastelingen hebben, en we streven ernaar om die passie te kanaliseren in hoogwaardige content die zowel informatief als onderhoudend is.
         </p>
         
         <h2 class="mt-8">Wat We Doen</h2>
         <p>
-            Bij Voetbal<span class="gold-accent">Visie</span> publiceren we dagelijks artikelen over alles wat met Real Madrid te maken heeft, waaronder:
+            Bij Vlag<span class="gold-accent">lijn</span> publiceren we dagelijks artikelen over alles wat met vlaggen te maken heeft, waaronder:
         </p>
         <ul class="list-disc pl-6 mt-2">
-            <li>Uitgebreide wedstrijdverslagen en analyses</li>
-            <li>Inzichten in tactieken en strategie</li>
-            <li>Transfernieuws en geruchten</li>
-            <li>Spelerprofielen en interviews</li>
-            <li>Historische terugblikken op belangrijke momenten</li>
-            <li>Fanperspectieven en meningen</li>
+            <li>Uitgebreide analyses van vlagontwerpen</li>
+            <li>Historische betekenis van vlaggen</li>
+            <li>Nieuws over nieuwe vlaggen</li>
+            <li>Interviews met vlagontwerpers</li>
+            <li>Historische terugblikken op belangrijke vlaggen</li>
+            <li>Perspectieven van vlaggenliefhebbers</li>
         </ul>
         
         <h2 class="mt-8">Ons Team</h2>
         <p>
-            Ons team bestaat uit gepassioneerde Real Madrid-supporters die hun liefde voor de club combineren met journalistieke vaardigheden en tactisch inzicht. Van seizoenkaarthouders tot internationale volgers, ons diverse team brengt verschillende perspectieven naar de tafel, wat resulteert in goed afgeronde en genuanceerde berichtgeving.
+            Ons team bestaat uit gepassioneerde vlaggenliefhebbers die hun liefde voor vlaggen combineren met journalistieke vaardigheden en historisch inzicht. Van verzamelaars tot ontwerpers, ons diverse team brengt verschillende perspectieven naar de tafel, wat resulteert in goed afgeronde en genuanceerde berichtgeving.
         </p>
         
         <h2 class="mt-8">Community</h2>
@@ -56,7 +56,7 @@ require_once 'includes/functions.php';
             We horen graag van onze lezers! Of je nu een suggestie hebt, feedback wilt geven, of gewoon in contact wilt komen, je kunt ons bereiken via:
         </p>
         <ul class="list-disc pl-6 mt-2">
-            <li>Email: <a href="mailto:info@voetbalvisie.nl" class="text-primary">info@voetbalvisie.nl</a></li>
+            <li>Email: <a href="mailto:info@vlaglijn.nl" class="text-primary">info@vlaglijn.nl</a></li>
             <li>Sociale media: Volg ons op Twitter, Facebook en Instagram</li>
             <li>Commentaarsecties: We lezen en reageren regelmatig op opmerkingen op onze artikelen</li>
         </ul>

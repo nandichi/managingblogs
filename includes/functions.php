@@ -218,4 +218,24 @@ function getCurrentUrl() {
 function getGravatarUrl($email, $size = 80) {
     $hash = md5(strtolower(trim($email)));
     return "https://www.gravatar.com/avatar/{$hash}?s={$size}&d=mp";
+}
+
+/**
+ * Berekent de geschatte leestijd van een tekst
+ * @param string $content De inhoud van het artikel
+ * @param int $wordsPerMinute Gemiddeld aantal woorden per minuut (standaard 200)
+ * @return int Geschatte leestijd in minuten
+ */
+function formatReadingTime($content, $wordsPerMinute = 200) {
+    // Strip HTML tags
+    $text = strip_tags($content);
+    
+    // Tel het aantal woorden
+    $wordCount = str_word_count($text);
+    
+    // Bereken leestijd en rond af naar boven
+    $minutes = ceil($wordCount / $wordsPerMinute);
+    
+    // Minimaal 1 minuut
+    return max(1, $minutes);
 } 

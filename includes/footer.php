@@ -6,10 +6,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Logo en korte info -->
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">Voetbal<span class="gold-accent">Visie</span></h2>
+                    <h2 class="text-2xl font-bold mb-4">Vlag<span class="gold-accent">lijn</span></h2>
                     <p class="text-gray-300 mb-4">
-                        Het laatste nieuws, analyses en verhalen over Real Madrid. 
-                        Een gemeenschap voor voetbalfans.
+                        Het laatste nieuws, analyses en verhalen over vlaggen. 
+                        Een gemeenschap voor vlagliefhebbers.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-white hover:text-gray-300">
@@ -62,7 +62,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; <?php echo date('Y'); ?> VoetbalVisie. Alle rechten voorbehouden.</p>
+                <p>&copy; <?php echo date('Y'); ?> Vlaglijn. Alle rechten voorbehouden.</p>
                 <p class="mt-2">
                     <a href="privacy.php" class="hover:text-white">Privacybeleid</a> | 
                     <a href="terms.php" class="hover:text-white">Gebruiksvoorwaarden</a>

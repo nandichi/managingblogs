@@ -13,29 +13,29 @@ if (isset($_SESSION['user_id']) && file_exists('models/User.php') && !class_exis
 $currentPage = basename($_SERVER['PHP_SELF']);
 
 // Bepaal de site titel
-$pageTitle = 'VoetbalVisie';
+$pageTitle = 'Vlaglijn';
 switch ($currentPage) {
     case 'login.php':
-        $pageTitle = 'Inloggen | VoetbalVisie';
+        $pageTitle = 'Inloggen | Vlaglijn';
         break;
     case 'register.php':
-        $pageTitle = 'Registreren | VoetbalVisie';
+        $pageTitle = 'Registreren | Vlaglijn';
         break;
     case 'blog.php':
-        $pageTitle = 'Blog | VoetbalVisie';
+        $pageTitle = 'Blog | Vlaglijn';
         break;
     case 'post.php':
         if (isset($post['title'])) {
-            $pageTitle = $post['title'] . ' | VoetbalVisie';
+            $pageTitle = $post['title'] . ' | Vlaglijn';
         } else {
-            $pageTitle = 'Post | VoetbalVisie';
+            $pageTitle = 'Post | Vlaglijn';
         }
         break;
     case 'category.php':
         if (isset($category['name'])) {
-            $pageTitle = $category['name'] . ' | VoetbalVisie';
+            $pageTitle = $category['name'] . ' | Vlaglijn';
         } else {
-            $pageTitle = 'Categorie | VoetbalVisie';
+            $pageTitle = 'Categorie | Vlaglijn';
         }
         break;
 }
@@ -267,7 +267,7 @@ switch ($currentPage) {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.34 17A9 9 0 0121 9.36M14.74 19.5a9 9 0 01-11.16-9.64" />
                         </svg>
                     </span>
-                    Voetbal<span class="gold-accent">Visie</span>
+                    Vlag<span class="gold-accent">lijn</span>
                 </a>
                 
                 <!-- Mobiele menu knop -->
