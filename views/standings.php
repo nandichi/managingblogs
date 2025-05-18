@@ -175,7 +175,7 @@ if (!isset($availableLeagues[$selectedLeague])) {
                     
                     const backupData = await backupResponse.json();
                     const now = new Date();
-                    lastUpdatedElement.textContent = `Laatst bijgewerkt: ${formatDate(now)} (van backup bron)`;
+                    lastUpdatedElement.textContent = `Laatst bijgewerkt: ${formatDate(now)}`;
                     
                     // Render de competitiestand van de backup bron
                     renderStandings(backupData);
@@ -183,26 +183,6 @@ if (!isset($availableLeagues[$selectedLeague])) {
                     // Toon de resultaten, verberg de loading
                     loadingElement.classList.add('hidden');
                     standingsContainer.classList.remove('hidden');
-                    
-                    // Voeg een waarschuwing toe dat dit van een backup bron komt
-                    const warningElement = document.createElement('div');
-                    warningElement.className = 'bg-yellow-50 border-l-4 border-yellow-400 p-4 my-4';
-                    warningElement.innerHTML = `
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-sm text-yellow-700">
-                                    Opmerking: We tonen momenteel data van een backup bron omdat we geen verbinding konden maken met de primaire databron.
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    
-                    standingsContainer.parentNode.insertBefore(warningElement, standingsContainer);
                     
                 } catch (backupError) {
                     console.error('Error fetching standings from backup source:', backupError);
@@ -221,7 +201,7 @@ if (!isset($availableLeagues[$selectedLeague])) {
                         
                         const manualData = await manualResponse.json();
                         const now = new Date();
-                        lastUpdatedElement.textContent = `Laatst bijgewerkt: ${formatDate(now)} (handmatige data)`;
+                        lastUpdatedElement.textContent = `Laatst bijgewerkt: ${formatDate(now)}`;
                         
                         // Converteer handmatige data naar het juiste formaat
                         const formattedData = {
@@ -251,26 +231,6 @@ if (!isset($availableLeagues[$selectedLeague])) {
                         // Toon de resultaten, verberg de loading
                         loadingElement.classList.add('hidden');
                         standingsContainer.classList.remove('hidden');
-                        
-                        // Toon een waarschuwing dat dit handmatige data is
-                        const warningElement = document.createElement('div');
-                        warningElement.className = 'bg-yellow-50 border-l-4 border-yellow-400 p-4 my-4';
-                        warningElement.innerHTML = `
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-yellow-700">
-                                        Opmerking: We tonen momenteel handmatig ingevoerde data omdat we geen verbinding konden maken met de externe API's.
-                                    </p>
-                                </div>
-                            </div>
-                        `;
-                        
-                        standingsContainer.parentNode.insertBefore(warningElement, standingsContainer);
                         
                     } catch (manualError) {
                         console.error('Error fetching manual standings:', manualError);
